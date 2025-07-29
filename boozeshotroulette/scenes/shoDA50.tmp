@@ -1,0 +1,267 @@
+[gd_scene load_steps=26 format=3 uid="uid://bnlk52qg20spl"]
+
+[ext_resource type="Script" path="res://scenes/shotgun_scene.gd" id="1_1l8ex"]
+[ext_resource type="Texture2D" uid="uid://bb4b7q7ukg47g" path="res://assets/sprites/Shotgun animation Y.png" id="1_3owbi"]
+[ext_resource type="AudioStream" uid="uid://w4tq8eh4tti2" path="res://assets/sfx/shotgun_sound.wav" id="2_0bmb7"]
+[ext_resource type="PackedScene" uid="uid://5uebkx7jyanb" path="res://scenes/popup_box.tscn" id="3_tmb7s"]
+[ext_resource type="AudioStream" uid="uid://b87t5jct4sw5s" path="res://assets/sfx/empty-gun-shot-6209.mp3" id="4_hi56r"]
+[ext_resource type="AudioStream" uid="uid://bxunttevey356" path="res://assets/sfx/lever-action-cocking-2-39680.mp3" id="5_qby02"]
+
+[sub_resource type="Gradient" id="Gradient_7b167"]
+offsets = PackedFloat32Array(0, 0.896104, 1)
+colors = PackedColorArray(0.623529, 0, 0, 1, 0.223529, 0, 0, 1, 0.188235, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_x1p8x"]
+gradient = SubResource("Gradient_7b167")
+fill = 1
+fill_from = Vector2(0.516619, 0.529915)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ooqih"]
+atlas = ExtResource("1_3owbi")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xdxon"]
+atlas = ExtResource("1_3owbi")
+region = Rect2(0, 128, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8cbqy"]
+atlas = ExtResource("1_3owbi")
+region = Rect2(0, 256, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ebsh"]
+atlas = ExtResource("1_3owbi")
+region = Rect2(0, 384, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pk1al"]
+atlas = ExtResource("1_3owbi")
+region = Rect2(0, 512, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_32pnr"]
+atlas = ExtResource("1_3owbi")
+region = Rect2(0, 640, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3wtnp"]
+atlas = ExtResource("1_3owbi")
+region = Rect2(0, 768, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ts4bf"]
+atlas = ExtResource("1_3owbi")
+region = Rect2(0, 896, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rlotv"]
+atlas = ExtResource("1_3owbi")
+region = Rect2(0, 1024, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w2ldr"]
+atlas = ExtResource("1_3owbi")
+region = Rect2(0, 1152, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b8cd8"]
+atlas = ExtResource("1_3owbi")
+region = Rect2(0, 1280, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qojv3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ooqih")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xdxon")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8cbqy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ebsh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pk1al")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_32pnr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3wtnp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ts4bf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rlotv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w2ldr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b8cd8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ooqih")
+}],
+"loop": false,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="Animation" id="Animation_yypa7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Shotgun/AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../blankclicksound:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../shotgunsound:playing")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_qv68d"]
+resource_name = "blank"
+length = 1.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Shotgun/AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 5, 6, 7, 8, 9, 10, 11]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../blankclicksound:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_50k77"]
+resource_name = "fire"
+length = 1.15
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Shotgun/AnimatedSprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../shotgunsound:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(-0.1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s8kwj"]
+_data = {
+"RESET": SubResource("Animation_yypa7"),
+"blank": SubResource("Animation_qv68d"),
+"fire": SubResource("Animation_50k77")
+}
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fuupl"]
+radius = 12.5909
+height = 67.7273
+
+[node name="shotgunScene" type="Node2D"]
+script = ExtResource("1_1l8ex")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_x1p8x")
+
+[node name="Shotgun" type="Node2D" parent="CanvasLayer"]
+position = Vector2(549, 978)
+rotation = 1.5708
+scale = Vector2(22, 22)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/Shotgun"]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_qojv3")
+flip_h = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Shotgun"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_s8kwj")
+}
+
+[node name="Area2D" type="Area2D" parent="CanvasLayer"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Area2D"]
+position = Vector2(577, 977)
+scale = Vector2(22, 22)
+shape = SubResource("CapsuleShape2D_fuupl")
+
+[node name="PopupBox" parent="CanvasLayer" instance=ExtResource("3_tmb7s")]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="shotgunsound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_0bmb7")
+
+[node name="blankclicksound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_hi56r")
+
+[node name="emptycockingsound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_qby02")
+
+[node name="shotreset_timer" type="Timer" parent="."]
+wait_time = 1.1
+one_shot = true
+
+[connection signal="input_event" from="CanvasLayer/Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="timeout" from="shotreset_timer" to="." method="_on_shotreset_timer_timeout"]

@@ -1,0 +1,59 @@
+[gd_scene load_steps=5 format=3 uid="uid://5uebkx7jyanb"]
+
+[ext_resource type="Script" path="res://scenes/popup_box.gd" id="1_04wj0"]
+[ext_resource type="Shader" path="res://scenes/popup_box.gdshader" id="2_xo6qv"]
+[ext_resource type="AudioStream" uid="uid://rgpupexm47ob" path="res://assets/sfx/loadshell.wav" id="3_s3plh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ubi3n"]
+shader = ExtResource("2_xo6qv")
+shader_parameter/lod = 0.0
+
+[node name="PopupBox" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_04wj0")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_ubi3n")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.087037
+anchor_top = 0.0770833
+anchor_right = 0.9
+anchor_bottom = 0.890104
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 150
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 150
+theme_override_constants/margin_bottom = 50
+
+[node name="AmmoArray" type="GridContainer" parent="PanelContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 100
+
+[node name="LoadShellSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_s3plh")
+
+[connection signal="gui_input" from="PanelContainer" to="." method="_on_panel_container_gui_input"]
